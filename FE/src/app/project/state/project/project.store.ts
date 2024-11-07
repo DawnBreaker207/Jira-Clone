@@ -1,4 +1,4 @@
-import { JProject } from '@/app/interface/project';
+import { JProject } from '@/interface/project';
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 export interface ProjectState extends JProject {}

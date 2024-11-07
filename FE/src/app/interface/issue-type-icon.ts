@@ -1,7 +1,7 @@
 import { IssueUtil } from '../project/utils/issue';
 import { IssueType } from './issue';
 
-export class IssueTypeIcon {
+export class IssueTypeWithIcon {
   value: string;
   icon: string;
 

@@ -1,6 +1,3 @@
-import { JComment } from '@/app/interface/comment';
-import { JIssue } from '@/app/interface/issue';
-import { JProject } from '@/app/interface/project';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { arrayRemove, arrayUpsert, setLoading } from '@datorama/akita';
@@ -8,6 +5,9 @@ import { catchError, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { DateUtil } from '../../utils/date';
 import { ProjectStore } from './project.store';
+import { JProject } from '@/interface/project';
+import { JIssue } from '@/interface/issue';
+import { JComment } from '@/interface/comment';
 
 @Injectable({
   providedIn: 'root'

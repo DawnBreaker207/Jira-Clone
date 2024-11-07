@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ProjectState, ProjectStore } from './project.store';
 import { Query } from '@datorama/akita';
-import { IssueStatus, JIssue } from '@/app/interface/issue';
+
 import { delay, map, Observable } from 'rxjs';
+import { IssueStatus, JIssue } from '@/interface/issue';
 
 @Injectable({ providedIn: 'root' })
 export class ProjectQuery extends Query<ProjectState> {
