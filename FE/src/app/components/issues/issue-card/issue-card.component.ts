@@ -7,10 +7,13 @@ import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { Subject, takeUntil } from 'rxjs';
 import { IssueModalComponent } from '../issue-modal/issue-modal.component';
+import { SvgIconComponent } from '@/jira-control/svg-icon/svg-icon.component';
+import { AvatarComponent } from '@/jira-control/avatar/avatar.component';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 @Component({
   selector: 'issue-card',
   standalone: true,
-  imports: [],
+  imports: [SvgIconComponent, AvatarComponent, NzToolTipModule],
   templateUrl: './issue-card.component.html',
   styleUrl: './issue-card.component.scss'
 })

@@ -1,10 +1,11 @@
-import { JUser } from '@/app/interface/user';
+import { JUser } from '@/interface/user';
 import { Component, Input } from '@angular/core';
+import { AvatarComponent } from "../../jira-control/avatar/avatar.component";
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [],
+  imports: [AvatarComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
