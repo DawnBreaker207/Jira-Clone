@@ -1,6 +1,5 @@
-import { IssueType } from '@/app/interface/issue';
-import { IssuePriority } from '../../interface/issue';
-import { IssuePriorityIcon } from '@/app/interface/issue-priority-icon';
+import { IssuePriorityIcon } from '@/interface/issue-priority-icon';
+import { IssuePriority, IssueType } from '../../interface/issue';
 
 export class IssueUtil {
   static getIssueTypeIcon(issueType: IssueType): string {

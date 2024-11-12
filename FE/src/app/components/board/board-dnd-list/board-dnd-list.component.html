@@ -9,5 +9,12 @@
     [cdkDropListData]="issues"
     [id]="status"
     (cdkDropListDropped)="drop($event)"
-  ></div>
+  >
+    <issue-card
+      *ngFor="let issue of issues"
+      [issue]="issue"
+      cdkDrag
+      [cdkDragData]="issue"
+    ></issue-card>
+  </div>
 </div>

@@ -1,16 +1,20 @@
 import { AuthQuery } from '@/auth/auth.query';
 import { IssueStatus } from '@/interface/issue';
 import { ProjectQuery } from '@/project/state/project/project.query';
-import { Component } from '@angular/core';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { Component, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+import { BoardDndListComponent } from '../board-dnd-list/board-dnd-list.component';
 
 @Component({
   selector: 'board-dnd',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe, BoardDndListComponent,CommonModule],
   templateUrl: './board-dnd.component.html',
   styleUrl: './board-dnd.component.scss'
 })
-export class BoardDndComponent {
+export class BoardDndComponent implements OnDestroy {
+  private destroyed$ = new Subject<void>();
   issueStatues: IssueStatus[] = [
     IssueStatus.BACKLOG,
     IssueStatus.SELECTED,
@@ -22,4 +26,9 @@ export class BoardDndComponent {
     public projectQuery: ProjectQuery,
     public authQuery: AuthQuery
   ) {}
+
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
 }

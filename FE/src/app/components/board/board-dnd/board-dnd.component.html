@@ -1,3 +1,12 @@
 <div class="flex container mt-7" cdkDroplistGrop>
-  <div class="board-dnd-list" board-dnd-list ></div>
+  <ng-container *ngIf="authQuery.userId$ | async as query">
+    <div
+      class="board-dnd-list"
+      board-dnd-list
+      *ngFor="let status of issueStatues"
+      [status]="status"
+      [currentUserId]="query"
+      [issues$]="projectQuery.issueByStatusSorted$(status)"
+    ></div>
+  </ng-container>
 </div>

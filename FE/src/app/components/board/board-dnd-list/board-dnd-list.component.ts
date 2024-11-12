@@ -4,13 +4,14 @@ import { FilterState } from '@/project/state/filter/filter.store';
 import { ProjectService } from '@/project/state/project/project.service';
 import { IssueUtil } from '@/project/utils/issue';
 import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import dateFns from 'date-fns';
 import { combineLatest, Observable, Subject, takeUntil } from 'rxjs';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
+import { IssueCardComponent } from '../../issues/issue-card/issue-card.component';
+import dateFns from 'date-fns';
 @Component({
   selector: '[board-dnd-list]',
   standalone: true,
-  imports: [DragDropModule],
+  imports: [DragDropModule, IssueCardComponent],
   templateUrl: './board-dnd-list.component.html',
   styleUrl: './board-dnd-list.component.scss',
   encapsulation: ViewEncapsulation.None
@@ -78,7 +79,7 @@ export class BoardDndListComponent implements OnInit, OnDestroy {
   isDateWithinThreeDaysFromNow(date: string) {
     const now = new Date();
     const inputDate = new Date(date);
-    return dateFns.isAfter(inputDate, dateFns.subDays(now, 3));
+    // return dateFns.isAfter(inputDate, dateFns.subDays(now, 3));
   }
 
   private updateListPosition(newList: JIssue[]) {

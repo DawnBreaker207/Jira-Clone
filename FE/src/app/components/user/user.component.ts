@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { AvatarComponent } from "../../jira-control/avatar/avatar.component";
 
 @Component({
-  selector: 'app-user',
+  selector: 'j-user',
   standalone: true,
   imports: [AvatarComponent],
   templateUrl: './user.component.html',
