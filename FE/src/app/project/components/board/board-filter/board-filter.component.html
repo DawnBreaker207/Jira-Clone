@@ -24,14 +24,14 @@
   <j-button
     class="ml-3"
     className="btn-empty"
-    [isActive]="(filterQuery.onlyMyIssue$ | async) || false"
+    [isActive]="(filterQuery.onlyMyIssue$ | async)!"
     (click)="onlyMyIssueChanged()"
   >
     Only My Issues
   </j-button>
   <j-button
     class="ml-3"
-    [isActive]="(filterQuery.ignoreResolved$ | async) || false"
+    [isActive]="(filterQuery.ignoreResolved$ | async)!"
     (click)="ignoreResolvedChanged()"
     className="btn-empty"
   >

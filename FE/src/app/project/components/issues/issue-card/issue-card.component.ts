@@ -11,10 +11,12 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { Subject, takeUntil } from 'rxjs';
 import { IssueModalComponent } from '../issue-modal/issue-modal.component';
+import { ProjectService } from '@/project/state/project/project.service';
 @Component({
   selector: 'issue-card',
   standalone: true,
   imports: [SvgIconComponent, AvatarComponent, NzToolTipModule, CommonModule],
+  providers: [ProjectService, ProjectQuery],
   templateUrl: './issue-card.component.html',
   styleUrl: './issue-card.component.scss'
 })

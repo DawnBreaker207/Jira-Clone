@@ -2,9 +2,9 @@ import { JIssue } from '@/interface/issue';
 import { DeleteIssueModel } from '@/interface/ui-model/delete-issue-mode';
 import { ProjectService } from '@/project/state/project/project.service';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NzModalRef } from 'ng-zorro-antd/modal';
+import { NZ_MODAL_DATA, NzModalRef } from 'ng-zorro-antd/modal';
 import { Observable } from 'rxjs';
 import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
 
@@ -12,12 +12,17 @@ import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
   selector: 'issue-modal',
   standalone: true,
   imports: [CommonModule, IssueDetailComponent],
+  providers: [ProjectService],
   templateUrl: './issue-modal.component.html',
   styleUrl: './issue-modal.component.scss'
 })
-export class IssueModalComponent {
-  @Input() issue$!: Observable<JIssue>;
+export class IssueModalComponent implements OnInit {
+  readonly issue$: Observable<JIssue> = inject(NZ_MODAL_DATA).issue$; // Nhận Observable từ NZ_MODAL_DATA
+  // @Input() issue$!: Observable<JIssue>;
 
+  ngOnInit(): void {
+    console.log(this.issue$);
+  }
   constructor(
     private modal: NzModalRef,
     private router: Router,

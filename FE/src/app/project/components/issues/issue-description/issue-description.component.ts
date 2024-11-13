@@ -11,6 +11,7 @@ import { ProjectService } from '@/project/state/project/project.service';
   selector: 'issue-description',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, ButtonComponent, QuillEditorComponent],
+  providers: [ProjectService],
   templateUrl: './issue-description.component.html',
   styleUrl: './issue-description.component.scss'
 })

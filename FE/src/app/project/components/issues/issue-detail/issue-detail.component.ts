@@ -1,19 +1,20 @@
 import { JIssue } from '@/interface/issue';
 import { DeleteIssueModel } from '@/interface/ui-model/delete-issue-mode';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NzModalService } from 'ng-zorro-antd/modal';
-import { IssueTypeComponent } from '../issue-type/issue-type.component';
-import { IssueTitleComponent } from '../issue-title/issue-title.component';
-import { IssueCommentsComponent } from '../issue-comments/issue-comments.component';
-import { IssueStatusComponent } from '../issue-status/issue-status.component';
-import { IssueReporterComponent } from '../issue-reporter/issue-reporter.component';
-import { IssueAssigneesComponent } from '../issue-assigness/issue-assignees.component';
-import { IssuePriorityComponent } from '../issue-priority/issue-priority.component';
-import { IssueLoaderComponent } from '../issue-loader/issue-loader.component';
-import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { ButtonComponent } from '@/jira-control/button/button.component';
 import { ProjectQuery } from '@/project/state/project/project.query';
+import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { IssueAssigneesComponent } from '../issue-assigness/issue-assignees.component';
+import { IssueCommentsComponent } from '../issue-comments/issue-comments.component';
 import { IssueDescriptionComponent } from '../issue-description/issue-description.component';
+import { IssueLoaderComponent } from '../issue-loader/issue-loader.component';
+import { IssuePriorityComponent } from '../issue-priority/issue-priority.component';
+import { IssueReporterComponent } from '../issue-reporter/issue-reporter.component';
+import { IssueStatusComponent } from '../issue-status/issue-status.component';
+import { IssueTitleComponent } from '../issue-title/issue-title.component';
+import { IssueTypeComponent } from '../issue-type/issue-type.component';
+import { ProjectService } from '@/project/state/project/project.service';
 
 @Component({
   selector: 'issue-detail',
@@ -33,6 +34,7 @@ import { IssueDescriptionComponent } from '../issue-description/issue-descriptio
     AsyncPipe,
     CommonModule
   ],
+  providers: [ProjectService, ProjectQuery],
   templateUrl: './issue-detail.component.html',
   styleUrl: './issue-detail.component.scss'
 })
@@ -51,7 +53,6 @@ export class IssueDetailComponent {
 
   openDeleteIssueModal() {
     this.modalService.create({
-      // nzContent: ,
       nzClosable: false,
       nzFooter: null,
       nzStyle: {
