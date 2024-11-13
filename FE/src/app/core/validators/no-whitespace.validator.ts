@@ -1,7 +1,7 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 export function NoWhitespaceValidator(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } => {
+  return (control: AbstractControl): { [key: string]: any } | null => {
     let controlVal = control.value;
     if (typeof controlVal === 'number') {
       controlVal = `${controlVal}`;
