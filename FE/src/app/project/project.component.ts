@@ -4,11 +4,12 @@ import { LoginPayload } from './auth/loginPayload';
 import { ProjectService } from './state/project/project.service';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { SvgDefinitionsComponent } from "../jira-control/svg-definitions/svg-definitions.component";
+import { SvgDefinitionsComponent } from '../jira-control/svg-definitions/svg-definitions.component';
+import { NavigationComponent } from "./components/navigation/navigation/navigation.component";
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SvgDefinitionsComponent],
+  imports: [CommonModule, RouterOutlet, SvgDefinitionsComponent, NavigationComponent],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
 })

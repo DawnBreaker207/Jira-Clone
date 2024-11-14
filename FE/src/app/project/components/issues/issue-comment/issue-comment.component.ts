@@ -16,11 +16,18 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { ButtonComponent } from '@/jira-control/button/button.component';
 import { AvatarComponent } from '@/jira-control/avatar/avatar.component';
 import { AuthQuery } from '@/project/auth/auth.query';
-
+import { TextFieldModule } from '@angular/cdk/text-field';
 @Component({
   selector: 'issue-comment',
   standalone: true,
-  imports: [ReactiveFormsModule, AvatarComponent, ButtonComponent, DatePipe, CommonModule],
+  imports: [
+    ReactiveFormsModule,
+    AvatarComponent,
+    ButtonComponent,
+    DatePipe,
+    CommonModule,
+    TextFieldModule
+  ],
   templateUrl: './issue-comment.component.html',
   styleUrl: './issue-comment.component.scss'
 })

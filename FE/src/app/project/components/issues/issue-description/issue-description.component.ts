@@ -1,16 +1,16 @@
 import { JIssue } from '@/interface/issue';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { QuillEditorComponent } from 'ngx-quill';
 import { ButtonComponent } from '@/jira-control/button/button.component';
 import { quillConfiguration } from '@/project/config/editor';
 import { ProjectService } from '@/project/state/project/project.service';
+import { CommonModule } from '@angular/common';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'issue-description',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ButtonComponent, QuillEditorComponent],
+  imports: [CommonModule, ReactiveFormsModule, ButtonComponent, QuillModule],
   providers: [ProjectService],
   templateUrl: './issue-description.component.html',
   styleUrl: './issue-description.component.scss'

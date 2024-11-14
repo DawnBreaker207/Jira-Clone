@@ -7,7 +7,7 @@ const BASE_TIME_DELAY = 10;
 })
 export class AutofocusDirective implements AfterContentInit, OnDestroy {
   @Input('jAutofocus') enable!: boolean | string;
-  @Input() timeDelay: number = BASE_TIME_DELAY;
+  @Input() timerDelay: number = BASE_TIME_DELAY;
 
   private elementRef: ElementRef;
   private timer: any;
@@ -37,7 +37,7 @@ export class AutofocusDirective implements AfterContentInit, OnDestroy {
     this.timer = setTimeout((): void => {
       this.timer = null;
       this.elementRef.nativeElement.focus();
-    }, this.timeDelay);
+    }, this.timerDelay);
   }
 
   private stopFocusWorkFlow(): void {

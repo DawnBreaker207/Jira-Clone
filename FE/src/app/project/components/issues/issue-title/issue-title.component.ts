@@ -3,11 +3,11 @@ import { ProjectService } from '@/project/state/project/project.service';
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-
+import { TextFieldModule } from '@angular/cdk/text-field';
 @Component({
   selector: 'issue-title',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TextFieldModule],
   templateUrl: './issue-title.component.html',
   styleUrl: './issue-title.component.scss'
 })
