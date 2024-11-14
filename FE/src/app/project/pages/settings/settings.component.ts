@@ -13,7 +13,6 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzNotificationModule, NzNotificationService } from 'ng-zorro-antd/notification';
 import { Subject, takeUntil } from 'rxjs';
 @Component({
-  selector: 'app-settings',
   standalone: true,
   imports: [
     NzNotificationModule,
