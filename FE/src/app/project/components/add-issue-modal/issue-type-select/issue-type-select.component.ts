@@ -3,13 +3,14 @@ import { IssueTypeWithIcon } from '@/interface/issue-type-icon';
 import { SvgIconComponent } from '@/jira-control/svg-icon/svg-icon.component';
 import { ProjectConst } from '@/project/config/const';
 import { IssueUtil } from '@/project/utils/issue';
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 @Component({
   selector: 'issue-type-select',
   standalone: true,
-  imports: [NzSelectModule, ReactiveFormsModule, SvgIconComponent],
+  imports: [NzSelectModule, ReactiveFormsModule, SvgIconComponent, CommonModule],
   templateUrl: './issue-type-select.component.html',
   styleUrl: './issue-type-select.component.scss'
 })

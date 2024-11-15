@@ -1,4 +1,5 @@
 import { JUser } from '@/interface/user';
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NzSelectModule } from 'ng-zorro-antd/select';
@@ -7,7 +8,7 @@ import { UserComponent } from '../../user/user.component';
 @Component({
   selector: 'issue-reporter-select',
   standalone: true,
-  imports: [ReactiveFormsModule, NzSelectModule, UserComponent],
+  imports: [ReactiveFormsModule, NzSelectModule, UserComponent, CommonModule],
   templateUrl: './issue-reporter-select.component.html',
   styleUrl: './issue-reporter-select.component.scss'
 })

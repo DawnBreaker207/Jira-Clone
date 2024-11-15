@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ProjectConst } from './project/config/const';
 import { ProjectComponent } from './project/project.component';
+import { BoardComponent } from './project/pages/board/board.component';
 
 export const routes: Routes = [
   {
@@ -14,8 +15,9 @@ export const routes: Routes = [
     children: [
       {
         path: 'board',
-        loadComponent: () =>
-          import('./project/pages/board/board.component').then((m) => m.BoardComponent)
+        component: BoardComponent
+        //   loadComponent: () =>
+        //     import('./project/pages/board/board.component').then((m) => m.BoardComponent)
       },
       {
         path: 'settings',
@@ -24,7 +26,7 @@ export const routes: Routes = [
       },
       {
         path: `issues/${ProjectConst.IssueId}`,
-        loadChildren: () =>
+        loadComponent: () =>
           import('./project/pages/full-issue-detail/full-issue-detail.component').then(
             (m) => m.FullIssueDetailComponent
           )

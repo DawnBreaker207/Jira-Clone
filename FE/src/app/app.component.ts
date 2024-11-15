@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
@@ -12,13 +12,17 @@ import { ProjectService } from './project/state/project/project.service';
   imports: [RouterOutlet, HttpClientModule, ReactiveFormsModule, NzSpinModule, AsyncPipe],
   providers: [ProjectService, ProjectQuery],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   constructor(
     public projectQuery: ProjectQuery,
-    public projectService: ProjectService
+    public projectService: ProjectService,
+    public cdr: ChangeDetectorRef
   ) {}
 
-  title = 'FE';
+  ngAfterViewInit(): void {
+    this.cdr.detectChanges();
+  }
 }

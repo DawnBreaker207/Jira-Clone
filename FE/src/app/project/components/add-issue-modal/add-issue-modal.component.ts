@@ -1,3 +1,4 @@
+import { AutofocusDirective } from '@/core/directives/autofocus.directive';
 import { NoWhitespaceValidator } from '@/core/validators/no-whitespace.validator';
 import { IssuePriority, IssueStatus, IssueType, JIssue } from '@/interface/issue';
 import { JUser } from '@/interface/user';
@@ -7,6 +8,7 @@ import { ProjectQuery } from '@/project/state/project/project.query';
 import { ProjectService } from '@/project/state/project/project.service';
 import { DateUtil } from '@/project/utils/date';
 import { IssueUtil } from '@/project/utils/issue';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NzModalModule, NzModalRef } from 'ng-zorro-antd/modal';
@@ -16,8 +18,6 @@ import { IssueAssigneesSelectComponent } from './issue-assignees-select/issue-as
 import { IssuePrioritySelectComponent } from './issue-priority-select/issue-priority-select.component';
 import { IssueReporterSelectComponent } from './issue-reporter-select/issue-reporter-select.component';
 import { IssueTypeSelectComponent } from './issue-type-select/issue-type-select.component';
-import { AsyncPipe } from '@angular/common';
-import { AutofocusDirective } from '@/core/directives/autofocus.directive';
 
 @Component({
   selector: 'app-add-issue-modal',
@@ -32,7 +32,8 @@ import { AutofocusDirective } from '@/core/directives/autofocus.directive';
     IssueTypeSelectComponent,
     QuillModule,
     AsyncPipe,
-    AutofocusDirective
+    AutofocusDirective,
+    CommonModule
   ],
   providers: [ProjectQuery, ProjectService],
   templateUrl: './add-issue-modal.component.html',

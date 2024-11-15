@@ -17,12 +17,10 @@ import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
   styleUrl: './issue-modal.component.scss'
 })
 export class IssueModalComponent implements OnInit {
-  readonly issue$: Observable<JIssue> = inject(NZ_MODAL_DATA).issue$; // Nhận Observable từ NZ_MODAL_DATA
+  readonly issue$: Observable<JIssue> = inject(NZ_MODAL_DATA).issue$;
   // @Input() issue$!: Observable<JIssue>;
 
-  ngOnInit(): void {
-    console.log(this.issue$);
-  }
+  ngOnInit(): void {}
   constructor(
     private modal: NzModalRef,
     private router: Router,
