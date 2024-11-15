@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './avatar.component.scss'
 })
 export class AvatarComponent {
-  @Input() avatarUrl!: string;
+  @Input() avatarUrl?: string;
   @Input() size: number = 12;
   @Input() name: string = '';
   @Input() rounded: boolean = true;

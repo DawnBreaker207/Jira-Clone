@@ -21,7 +21,7 @@ export class AppComponent implements AfterViewInit {
     public projectService: ProjectService,
     public cdr: ChangeDetectorRef
   ) {}
-
+  // TODO: fix this bug
   ngAfterViewInit(): void {
     this.cdr.detectChanges();
   }
