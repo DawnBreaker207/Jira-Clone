@@ -10,7 +10,7 @@ import { DateUtil } from '@/project/utils/date';
 import { IssueUtil } from '@/project/utils/issue';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NzModalModule, NzModalRef } from 'ng-zorro-antd/modal';
 import { QuillModule } from 'ngx-quill';
 import { Observable, Subject, takeUntil, tap } from 'rxjs';

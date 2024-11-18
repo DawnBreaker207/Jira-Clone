@@ -2,7 +2,7 @@ import { JIssue } from '@/interface/issue';
 import { DeleteIssueModel } from '@/interface/ui-model/delete-issue-mode';
 import { ProjectService } from '@/project/state/project/project.service';
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NZ_MODAL_DATA, NzModalRef } from 'ng-zorro-antd/modal';
 import { Observable } from 'rxjs';
@@ -31,8 +31,8 @@ export class IssueModalComponent implements OnInit {
     this.modal.close();
   }
 
-  openIssueDetail(issueId: string) {
-    this.modal.close();
+  openIssuePage(issueId: string) {
+    this.closeModal();
     this.router.navigate(['project', 'issue', issueId]);
   }
 

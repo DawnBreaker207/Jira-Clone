@@ -2,11 +2,13 @@ import { JIssue } from '@/interface/issue';
 import { DeleteIssueModel } from '@/interface/ui-model/delete-issue-mode';
 import { ButtonComponent } from '@/jira-control/button/button.component';
 import { ProjectQuery } from '@/project/state/project/project.query';
+import { ProjectService } from '@/project/state/project/project.service';
 import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NzModalService } from 'ng-zorro-antd/modal';
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { IssueAssigneesComponent } from '../issue-assigness/issue-assignees.component';
 import { IssueCommentsComponent } from '../issue-comments/issue-comments.component';
+import { IssueDeleteModalComponent } from '../issue-delete-modal/issue-delete-modal.component';
 import { IssueDescriptionComponent } from '../issue-description/issue-description.component';
 import { IssueLoaderComponent } from '../issue-loader/issue-loader.component';
 import { IssuePriorityComponent } from '../issue-priority/issue-priority.component';
@@ -14,8 +16,6 @@ import { IssueReporterComponent } from '../issue-reporter/issue-reporter.compone
 import { IssueStatusComponent } from '../issue-status/issue-status.component';
 import { IssueTitleComponent } from '../issue-title/issue-title.component';
 import { IssueTypeComponent } from '../issue-type/issue-type.component';
-import { ProjectService } from '@/project/state/project/project.service';
-import { IssueDeleteModalComponent } from '../issue-delete-modal/issue-delete-modal.component';
 
 @Component({
   selector: 'issue-detail',
@@ -33,7 +33,8 @@ import { IssueDeleteModalComponent } from '../issue-delete-modal/issue-delete-mo
     IssueLoaderComponent,
     DatePipe,
     AsyncPipe,
-    CommonModule
+    CommonModule,
+    NzModalModule
   ],
   providers: [ProjectService, ProjectQuery],
   templateUrl: './issue-detail.component.html',

@@ -7,15 +7,16 @@ import { ProjectQuery } from '@/project/state/project/project.query';
 import { ProjectService } from '@/project/state/project/project.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router, RouterModule } from '@angular/router';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { IssueDetailComponent } from '../../components/issues/issue-detail/issue-detail.component';
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'full-issue-detail',
   standalone: true,
-  imports: [CommonModule, BreadcrumbsComponent, IssueDetailComponent],
-  providers: [ProjectQuery, ProjectService],
+  imports: [CommonModule, BreadcrumbsComponent, IssueDetailComponent, RouterModule, NzModalModule],
+  providers: [ProjectQuery, ProjectService, NzModalService],
   templateUrl: './full-issue-detail.component.html',
   styleUrl: './full-issue-detail.component.scss'
 })
@@ -53,10 +54,14 @@ export class FullIssueDetailComponent implements OnInit, OnDestroy {
       this.backHome();
       return;
     }
+    // this.issueById$ = this._projectQuery.issueById$(this.issueId);
   }
 
   private backHome() {
     this.router.navigate(['/']);
   }
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
 }

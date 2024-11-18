@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 import { ProjectConst } from './project/config/const';
-import { ProjectComponent } from './project/project.component';
 import { BoardComponent } from './project/pages/board/board.component';
+import { FullIssueDetailComponent } from './project/pages/full-issue-detail/full-issue-detail.component';
+import { ProjectComponent } from './project/project.component';
 
 export const routes: Routes = [
   {
@@ -25,11 +26,12 @@ export const routes: Routes = [
           import('./project/pages/settings/settings.component').then((m) => m.SettingsComponent)
       },
       {
-        path: `issues/${ProjectConst.IssueId}`,
-        loadComponent: () =>
-          import('./project/pages/full-issue-detail/full-issue-detail.component').then(
-            (m) => m.FullIssueDetailComponent
-          )
+        path: `issue/:${ProjectConst.IssueId}`,
+        component: FullIssueDetailComponent
+        // loadComponent: () =>
+        //   import('./project/pages/full-issue-detail/full-issue-detail.component').then(
+        //     (m) => m.FullIssueDetailComponent
+        //   )
       },
       {
         path: '',
