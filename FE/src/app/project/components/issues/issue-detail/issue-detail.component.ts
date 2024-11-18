@@ -15,6 +15,7 @@ import { IssueStatusComponent } from '../issue-status/issue-status.component';
 import { IssueTitleComponent } from '../issue-title/issue-title.component';
 import { IssueTypeComponent } from '../issue-type/issue-type.component';
 import { ProjectService } from '@/project/state/project/project.service';
+import { IssueDeleteModalComponent } from '../issue-delete-modal/issue-delete-modal.component';
 
 @Component({
   selector: 'issue-detail',
@@ -53,6 +54,7 @@ export class IssueDetailComponent {
 
   openDeleteIssueModal() {
     this.modalService.create({
+      nzContent: IssueDeleteModalComponent,
       nzClosable: false,
       nzFooter: null,
       nzStyle: {
