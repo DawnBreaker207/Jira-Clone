@@ -11,6 +11,6 @@
   </nz-option>
 </nz-select>
 <ng-template #assigneesSelectedTmpl let-selected>
-  <j-user *ngIf="getUser(selected.nzValue) as user" [user]="user"></j-user>
+  <j-user [user]="getUser(selected.nzValue)"></j-user>
 </ng-template>
 <ng-template #noUserFoundTmpl> No user found. </ng-template>

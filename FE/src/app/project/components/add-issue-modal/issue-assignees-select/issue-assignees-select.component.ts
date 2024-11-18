@@ -17,7 +17,7 @@ export class IssueAssigneesSelectComponent {
   @Input() users!: JUser[];
 
   constructor() {}
-  getUser(userId: string) {
+  getUser(userId: string): any {
     return this.users.find((user) => user.id === userId);
   }
 }

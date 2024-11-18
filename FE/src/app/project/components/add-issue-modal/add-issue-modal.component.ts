@@ -47,7 +47,7 @@ export class AddIssueModalComponent implements OnInit, OnDestroy {
   destroyed$ = new Subject<void>();
 
   get f() {
-    return this.issueForm.controls as { [key: string]: FormControl };
+    return this.issueForm.controls as any;
   }
 
   constructor(
@@ -64,7 +64,7 @@ export class AddIssueModalComponent implements OnInit, OnDestroy {
       tap((users) => {
         const [user] = users;
         if (user) {
-          this.f['reportedId'].patchValue(user.id);
+          this.f.reporterId.patchValue(user.id);
         }
       })
     );
@@ -77,7 +77,7 @@ export class AddIssueModalComponent implements OnInit, OnDestroy {
       priority: [IssuePriority.MEDIUM],
       title: ['', NoWhitespaceValidator()],
       description: [''],
-      reportedId: [''],
+      reporterId: [''],
       userIds: [[]]
     });
   }

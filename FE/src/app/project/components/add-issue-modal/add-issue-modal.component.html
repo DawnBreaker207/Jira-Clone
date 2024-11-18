@@ -9,11 +9,11 @@
   <form class="issue-form" [formGroup]="issueForm">
     <div class="form-group">
       <label class="label"> Issue type </label>
-      <issue-type-select [control]="f['type']"></issue-type-select>
+      <issue-type-select [control]="f.type"></issue-type-select>
     </div>
     <div class="mt-3 form-group">
       <label class="label"> Issue priority </label>
-      <issue-priority-select [control]="f['priority']"></issue-priority-select>
+      <issue-priority-select [control]="f.priority"></issue-priority-select>
     </div>
     <div class="mt-3 form-group">
       <label class="label"> Short summary </label>
@@ -32,12 +32,12 @@
     </div>
     <div class="mt-3 form-group">
       <label class="label"> Reporter </label>
-      <issue-reporter-select [control]="f['reporterId']" [users]="(reporterUsers$ | async)!">
+      <issue-reporter-select [control]="f.reporterId" [users]="(reporterUsers$ | async)!">
       </issue-reporter-select>
     </div>
     <div class="mt-3 form-group">
       <label class="label"> Assignees </label>
-      <issue-assignees-select [control]="f['userIds']" [users]="(assignees$ | async)!">
+      <issue-assignees-select [control]="f.userIds" [users]="(assignees$ | async)!">
       </issue-assignees-select>
     </div>
     <div class="mt-5 form-group form-action">
