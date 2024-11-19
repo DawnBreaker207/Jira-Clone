@@ -5,7 +5,12 @@ import { ProjectService } from '@/project/state/project/project.service';
 import { IssueUtil } from '@/project/utils/issue';
 import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { combineLatest, Observable, Subject, takeUntil } from 'rxjs';
-import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  DragDropModule,
+  moveItemInArray,
+  transferArrayItem
+} from '@angular/cdk/drag-drop';
 import * as dateFns from 'date-fns';
 import { CommonModule } from '@angular/common';
 import { IssueCardComponent } from '../../issues/issue-card/issue-card.component';
@@ -13,6 +18,7 @@ import { IssueCardComponent } from '../../issues/issue-card/issue-card.component
   selector: '[board-dnd-list]',
   standalone: true,
   imports: [DragDropModule, IssueCardComponent, CommonModule],
+  providers: [ProjectService, FilterQuery],
   templateUrl: './board-dnd-list.component.html',
   styleUrl: './board-dnd-list.component.scss',
   encapsulation: ViewEncapsulation.None
@@ -50,7 +56,12 @@ export class BoardDndListComponent implements OnInit, OnDestroy {
       moveItemInArray(newIssues, event.previousIndex, event.currentIndex);
       this.updateListPosition(newIssues);
     } else {
-      event.previousContainer.data, newIssues, event.previousIndex, event.currentIndex;
+      transferArrayItem(
+        event.previousContainer.data,
+        newIssues,
+        event.previousIndex,
+        event.currentIndex
+      );
     }
     this.updateListPosition(newIssues);
     newIssue.status = event.container.id as IssueStatus;
