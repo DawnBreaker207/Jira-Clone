@@ -23,7 +23,7 @@ import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 export class FullIssueDetailComponent implements OnInit, OnDestroy {
   private destroyed$ = new Subject<void>();
   project!: JProject;
-  issueById$!: Observable<JIssue>;
+  issueById$!: Observable<JIssue | undefined>;
   issueId!: string;
   get breadcrumbs(): string[] {
     return [ProjectConst.Projects, this.project?.name as string, this.issueId];
@@ -54,7 +54,7 @@ export class FullIssueDetailComponent implements OnInit, OnDestroy {
       this.backHome();
       return;
     }
-    // this.issueById$ = this._projectQuery.issueById$(this.issueId);
+    this.issueById$ = this.projectQuery.issueById$(this.issueId);
   }
 
   private backHome() {
