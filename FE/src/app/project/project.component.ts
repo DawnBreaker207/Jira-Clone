@@ -5,7 +5,7 @@ import { ProjectService } from './state/project/project.service';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SvgDefinitionsComponent } from '../jira-control/svg-definitions/svg-definitions.component';
-import { NavigationComponent } from "./components/navigation/navigation/navigation.component";
+import { NavigationComponent } from './components/navigation/navigation/navigation.component';
 @Component({
   selector: 'app-project',
   standalone: true,

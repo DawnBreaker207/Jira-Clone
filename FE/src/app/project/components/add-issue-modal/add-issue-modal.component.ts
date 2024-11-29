@@ -87,7 +87,6 @@ export class AddIssueModalComponent implements OnInit, OnDestroy {
       return;
     }
     const now = DateUtil.getNow();
-    // TODO: Understand this
     const issue: JIssue = {
       ...this.issueForm.getRawValue(),
       id: IssueUtil.getRandomId(),
