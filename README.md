@@ -7,3 +7,4 @@
   + FE:
     + State management: Akita 
     + UI : Ng-Zorro, TailwindCss
+  + BE: Nestjs
