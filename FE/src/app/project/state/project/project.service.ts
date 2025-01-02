@@ -1,13 +1,13 @@
+import { JComment } from '@/interface/comment';
+import { JIssue } from '@/interface/issue';
+import { JProject } from '@/interface/project';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { arrayRemove, arrayUpsert, setLoading } from '@datorama/akita';
 import { catchError, of, tap } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { DateUtil } from '../../utils/date';
 import { ProjectStore } from './project.store';
-import { JProject } from '@/interface/project';
-import { JIssue } from '@/interface/issue';
-import { JComment } from '@/interface/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,8 @@ export class ProjectService {
 
   getProject() {
     this.http
-      // .get<JProject>(`${this.baseUrl}/project.json`)
-      .get<JProject>(`${this.baseUrl}/project`)
+      .get<JProject>(`${this.baseUrl}/project.json`)
+      // .get<JProject>(`${this.baseUrl}/project`)
       .pipe(
         setLoading(this.store),
         tap((project) => {
