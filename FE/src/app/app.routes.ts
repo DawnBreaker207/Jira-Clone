@@ -37,6 +37,11 @@ export const routes: Routes = [
         path: '',
         redirectTo: 'board',
         pathMatch: 'full'
+      },
+      {
+        path: '**',
+        redirectTo: 'board',
+        pathMatch: 'full'
       }
     ]
   }
