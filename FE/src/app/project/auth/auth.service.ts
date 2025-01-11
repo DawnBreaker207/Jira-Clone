@@ -22,8 +22,8 @@ export class AuthService {
   login({ email = '', password = '' }: LoginPayload) {
     this.store.setLoading(true);
     this.http
-      // .get<JUser>(`${this.baseUrl}/auth.json`)
-      .get<JUser>(`${this.baseUrl}/auth`)
+      .get<JUser>(`${this.baseUrl}/auth.json`)
+      // .get<JUser>(`${this.baseUrl}/auth`)
       .pipe(
         map((user) =>
           this.store.update((state) => ({
